@@ -240,12 +240,12 @@ windowProc send redraw tick hwnd msg wParam lParam
   button :: LPARAM -> Bool -> Bool -> IO LRESULT
   button lParam isLeft isDown = do
 	let (y,x) = lParam `divMod` 65536
-	send (Button {pt = toPoint (x,y), isLeft=isLeft, isDown=isDown})
+	send (Button {pt = toPoint (fromIntegral x, fromIntegral y), isLeft=isLeft, isDown=isDown})
 	return 0
 
   key :: WPARAM -> Bool -> IO LRESULT
   key wParam isDown = do
-     	send (Key { keysym = MkKey wParam, isDown = isDown })
+     	send (Key { keysym = MkKey (fromIntegral wParam), isDown = isDown })
 	-- by returning 1 we let it get translated into a char too
 	return 1
 
@@ -257,7 +257,7 @@ windowProc send redraw tick hwnd msg wParam lParam
   mouseMove :: LPARAM -> IO LRESULT
   mouseMove lParam = do
 	let (y,x) = lParam `divMod` 65536
-	send (MouseMove { pt = toPoint (x,y) })
+	send (MouseMove { pt = toPoint (fromIntegral x, fromIntegral y) })
 	return 0
 
   timer :: WPARAM -> IO LRESULT
