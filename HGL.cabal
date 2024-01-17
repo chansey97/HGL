@@ -21,6 +21,7 @@ cabal-version:	>= 1.2.1
 flag split-base
 
 library
+  ghc-options : -O0 -Wall
   if flag(split-base)
     build-depends: base >= 4.4.0.0 && < 5, array, stm
   else
