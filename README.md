@@ -6,4 +6,9 @@ Since I haven't found a public repository (e.g. Github) for HGL to create pull r
 
 Successfully tested with HGL-3.2.3.2, GHC-9.6.3, cabal-install 3.10.1.0, Microsoft Windows Vista and later.
 
-Related issues: https://github.com/chansey97/HGL/issues/2 https://github.com/chansey97/HGL/issues/1
+Related issues: 
+
+[HGL build failure on Windows](https://github.com/chansey97/HGL/issues/2) 
+
+[The official example of HGL crash on Windows after execution]( https://github.com/chansey97/HGL/issues/1)
+
